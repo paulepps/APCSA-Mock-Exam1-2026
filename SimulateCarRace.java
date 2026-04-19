@@ -26,8 +26,24 @@ public class SimulateCarRace {
         }
     }
 
+    public String shortenMessage(String message, String str) {
+        
+        int lenStr = str.length();
+
+        while (true) {
+            int idx = message.indexOf(str);
+            if (idx < 0) {
+                return message;
+            }
+
+            message = message.substring(0, idx) 
+                    + message.substring(idx + lenStr);
+        }
+    }
+
     public static void main(String[] args) {
         SimulateCarRace scr = new SimulateCarRace();
         System.out.println(scr.findWinner(2));
+        System.out.println(scr.shortenMessage("the_driver_of_the_first_car_is_Jerry", "the_"));
     }
 }
